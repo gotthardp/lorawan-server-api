@@ -1,5 +1,5 @@
 %
-% Copyright (c) 2016 Petr Gotthard <petr.gotthard@centrum.cz>
+% Copyright (c) 2016-2017 Petr Gotthard <petr.gotthard@centrum.cz>
 % All rights reserved.
 % Distributed under the terms of the MIT License. See the LICENSE file.
 %
@@ -8,7 +8,7 @@
 -record(gateway, {mac, netid, gpspos, gpsalt}).
 -record(device, {deveui, app, appid, appeui, appkey, link, last_join, adr_flag_set, adr_set}).
 -record(link, {devaddr, app, appid, nwkskey, appskey, fcntup, fcntdown, last_rx,
-    adr_flag_use, adr_flag_set, adr_use, adr_set}).
+    adr_flag_use, adr_flag_set, adr_use, adr_set, stat_time, stat_fcnt, stat_batt}).
 -record(pending, {devaddr, phypayload}).
 -record(txframe, {frid, datetime, devaddr, txdata}).
 -record(rxframe, {frid, mac, rssi, lsnr, freq, datr, codr, devaddr, fcnt}).
