@@ -8,7 +8,7 @@
 -record(gateway, {mac, netid, gpspos, gpsalt}).
 -record(device, {deveui, app, appid, appeui, appkey, link, last_join, adr_flag_set, adr_set}).
 -record(link, {devaddr, app, appid, nwkskey, appskey, fcntup, fcntdown, last_rx,
-    adr_flag_use, adr_flag_set, adr_use, adr_set, stat_time, stat_fcnt, stat_batt}).
+    adr_flag_use, adr_flag_set, adr_use, adr_set, devstat_time, devstat_fcnt, devstat}).
 -record(pending, {devaddr, phypayload}).
 -record(txframe, {frid, datetime, devaddr, txdata}).
 -record(rxframe, {frid, mac, rssi, lsnr, freq, datr, codr, devaddr, fcnt}).
