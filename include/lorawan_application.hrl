@@ -11,7 +11,7 @@
     adr_flag_use, adr_flag_set, adr_use, adr_set, devstat_time, devstat_fcnt, devstat}).
 -record(pending, {devaddr, phypayload}).
 -record(txframe, {frid, datetime, devaddr, txdata}).
--record(rxframe, {frid, mac, rssi, lsnr, freq, datr, codr, devaddr, fcnt}).
+-record(rxframe, {frid, mac, rssi, lsnr, freq, datr, codr, devaddr, fcnt, devstat}).
 
 -record(rxdata, {port, data, last_lost=false, shall_reply=false}).
 -record(txdata, {confirmed=false, port, data, pending=false}).
