@@ -6,7 +6,7 @@
 
 -record(user, {name, pass}).
 -record(gateway, {mac, netid, gpspos, gpsalt}).
--record(device, {deveui, app, appid, appeui, appkey, link, last_join, adr_flag_set, adr_set}).
+-record(device, {deveui, app, appid, appeui, appkey, link, can_join, last_join, adr_flag_set, adr_set}).
 -record(link, {devaddr, app, appid, nwkskey, appskey, fcntup, fcntdown, last_rx,
     adr_flag_use, adr_flag_set, adr_use, adr_set, devstat_time, devstat_fcnt, devstat}).
 -record(pending, {devaddr, phypayload}).
