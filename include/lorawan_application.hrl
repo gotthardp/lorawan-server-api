@@ -10,7 +10,7 @@
     fcnt_check, adr_flag_set, adr_set}).
 -record(link, {devaddr, region, app, appid, nwkskey, appskey, fcntup, fcntdown, last_rx,
     fcnt_check, adr_flag_use, adr_flag_set, adr_use, adr_set, devstat_time, devstat_fcnt, devstat}).
--record(pending, {devaddr, phypayload}).
+-record(pending, {devaddr, confirmed, phypayload}).
 -record(txframe, {frid, datetime, devaddr, txdata}).
 -record(rxframe, {frid, mac, rssi, lsnr, freq, datr, codr, devaddr, region, fcnt, devstat}).
 
