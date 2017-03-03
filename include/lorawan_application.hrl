@@ -12,6 +12,24 @@
 -type adr_config() :: {integer(), integer(), intervals()}.
 -type devstat() :: {integer(), integer()}.
 
+-record(rxq, {
+    freq :: number(),
+    datr :: binary(),
+    codr :: binary(),
+    time :: 'undefined' | calendar:datetime(),
+    tmst :: integer(),
+    srvtmst :: integer(), % when received by the server
+    rssi :: number(),
+    lsnr :: number()}).
+
+-record(txq, {
+    freq :: number(),
+    datr :: binary(),
+    codr :: binary(),
+    tmst :: integer(),
+    time :: 'undefined' | calendar:datetime(),
+    powe :: integer()}).
+
 -record(user, {
     name :: nonempty_string(),
     pass :: string()}).
@@ -57,6 +75,7 @@
     devstat :: devstat()}). % {battery, margin}
 
 -record(rxdata, {
+    fcnt :: integer(),
     port :: integer(),
     data :: binary(),
     last_lost=false :: boolean(),
@@ -82,16 +101,12 @@
 -record(rxframe, {
     frid :: frid(), % unique identifier
     mac :: binary(), % gateway used
-    rssi :: number(),
-    lsnr :: number(),
-    freq :: number(),
-    datr :: binary(),
-    codr :: binary(),
-    devaddr :: devaddr(),
+    rxq :: #rxq{},
     fcnt :: integer(),
     port :: integer(),
     data :: binary(),
     region :: binary(),
+    devaddr :: devaddr(),
     datetime :: calendar:datetime(),
     devstat :: devstat()}). % {battery, margin}
 
