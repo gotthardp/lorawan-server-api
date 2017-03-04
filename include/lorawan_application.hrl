@@ -16,7 +16,7 @@
     freq :: number(),
     datr :: binary(),
     codr :: binary(),
-    time :: 'undefined' | calendar:datetime(),
+    time :: calendar:datetime(),
     tmst :: integer(),
     srvtmst :: integer(), % when received by the server
     rssi :: number(),
@@ -27,7 +27,7 @@
     datr :: binary(),
     codr :: binary(),
     tmst :: integer(),
-    time :: 'undefined' | calendar:datetime(),
+    time :: 'undefined' | 'immediately' | calendar:datetime(),
     powe :: integer()}).
 
 -record(user, {
@@ -64,8 +64,10 @@
     appskey :: seckey(),
     fcntup :: integer(), % last uplink fcnt
     fcntdown :: integer(), % last downlink fcnt
-    last_rx :: calendar:datetime(),
     fcnt_check :: integer(),
+    last_rx :: calendar:datetime(),
+    last_mac :: binary(), % gateway used
+    last_rxq :: #rxq{},
     adr_flag_use :: boolean(), % device supports
     adr_flag_set :: boolean(), % server requests
     adr_use :: adr_config(), % used
