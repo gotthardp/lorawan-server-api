@@ -83,6 +83,7 @@
     adr_flag_set :: boolean(), % server requests
     adr_use :: adr_config(), % used
     adr_set :: adr_config(), % requested
+    last_snrs :: [integer()],
     devstat_time :: calendar:datetime(),
     devstat_fcnt :: integer(),
     devstat :: devstat()}). % {battery, margin}
