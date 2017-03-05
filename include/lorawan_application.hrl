@@ -41,6 +41,17 @@
     gpspos :: {number(), number()}, % {latitude, longitude}
     gpsalt :: number()}). % altitude
 
+-record(multicast_group, {
+    devaddr :: devaddr(), % multicast address
+    region :: binary(),
+    chan :: integer(),
+    datr :: binary(),
+    codr :: binary(),
+    nwkskey :: seckey(),
+    appskey :: seckey(),
+    mac :: binary(),
+    fcntdown :: integer()}). % last downlink fcnt
+
 -record(device, {
     deveui :: eui(),
     region :: binary(),
