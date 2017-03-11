@@ -116,11 +116,12 @@
     frid :: frid(), % unique identifier
     mac :: binary(), % gateway used
     rxq :: #rxq{},
+    average_snr :: number(),
     fcnt :: integer(),
     port :: integer(),
     data :: binary(),
-    region :: binary(),
     devaddr :: devaddr(),
+    region :: binary(),
     datetime :: calendar:datetime(),
     devstat :: devstat()}). % {battery, margin}
 
