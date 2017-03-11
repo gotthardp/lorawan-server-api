@@ -38,6 +38,7 @@
     mac :: binary(),
     tx_rfch :: integer(), % rf chain for downlinks
     netid :: binary(), % network id
+    last_rx :: calendar:datetime(),
     gpspos :: {number(), number()}, % {latitude, longitude}
     gpsalt :: number()}). % altitude
 
