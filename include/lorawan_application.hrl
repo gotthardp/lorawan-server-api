@@ -83,7 +83,7 @@
     adr_flag_set :: boolean(), % server requests
     adr_use :: adr_config(), % used
     adr_set :: adr_config(), % requested
-    last_snrs :: [integer()],
+    last_qs :: [{integer(), integer()}], % list of {RSSI, SNR} tuples
     devstat_time :: calendar:datetime(),
     devstat_fcnt :: integer(),
     devstat :: devstat()}). % {battery, margin}
@@ -116,7 +116,7 @@
     frid :: frid(), % unique identifier
     mac :: binary(), % gateway used
     rxq :: #rxq{},
-    average_snr :: number(),
+    average_qs :: {number(), number()}, % average RSSI and SNR
     fcnt :: integer(),
     port :: integer(),
     data :: binary(),
