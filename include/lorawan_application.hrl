@@ -57,7 +57,8 @@
     deveui :: eui(),
     region :: binary(),
     app :: binary(),
-    appid :: any(), % application arguments
+    appid :: any(), % application route
+    appargs :: any(), % application arguments
     appeui :: eui(),
     appkey :: seckey(),
     link :: devaddr(),
@@ -71,7 +72,8 @@
     devaddr :: devaddr(),
     region :: binary(),
     app :: binary(),
-    appid :: any(), % application arguments
+    appid :: any(), % application route
+    appargs :: any(), % application arguments
     nwkskey :: seckey(),
     appskey :: seckey(),
     fcntup :: integer(), % last uplink fcnt
