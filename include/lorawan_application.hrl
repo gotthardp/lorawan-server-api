@@ -120,11 +120,13 @@
     mac :: binary(), % gateway used
     rxq :: #rxq{},
     average_qs :: {number(), number()}, % average RSSI and SNR
+    app :: binary(),
+    appid :: any(), % application route
+    region :: binary(),
+    devaddr :: devaddr(),
     fcnt :: integer(),
     port :: integer(),
     data :: binary(),
-    devaddr :: devaddr(),
-    region :: binary(),
     datetime :: calendar:datetime(),
     devstat :: devstat()}). % {battery, margin}
 
