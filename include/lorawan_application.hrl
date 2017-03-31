@@ -38,6 +38,7 @@
     mac :: binary(),
     tx_rfch :: integer(), % rf chain for downlinks
     netid :: binary(), % network id
+    desc :: string(),
     last_rx :: calendar:datetime(),
     gpspos :: {number(), number()}, % {latitude, longitude}
     gpsalt :: number()}). % altitude
@@ -124,6 +125,7 @@
     appid :: any(), % application route
     region :: binary(),
     devaddr :: devaddr(),
+    powe:: integer(),
     fcnt :: integer(),
     port :: integer(),
     data :: binary(),
