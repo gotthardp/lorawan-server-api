@@ -80,6 +80,7 @@
     fcntup :: integer(), % last uplink fcnt
     fcntdown :: integer(), % last downlink fcnt
     fcnt_check :: integer(),
+    last_reset :: calendar:datetime(),
     last_rx :: calendar:datetime(),
     last_mac :: binary(), % gateway used
     last_rxq :: #rxq{},
