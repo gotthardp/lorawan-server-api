@@ -10,6 +10,7 @@
 -type frid() :: <<_:64>>.
 -type intervals() :: [{integer(), integer()}].
 -type adr_config() :: {integer(), integer(), intervals()}.
+-type rxwin_config() :: {integer(), integer(), number()}.
 -type devstat() :: {integer(), integer()}.
 
 -record(rxq, {
@@ -67,7 +68,8 @@
     last_join :: calendar:datetime(),
     fcnt_check :: integer(),
     adr_flag_set :: boolean(), % server requests
-    adr_set :: adr_config()}). % requested after join
+    adr_set :: adr_config(), % requested after join
+    rxwin_set :: rxwin_config()}). % requested
 
 -record(link, {
     devaddr :: devaddr(),
@@ -88,6 +90,8 @@
     adr_flag_set :: boolean(), % server requests
     adr_use :: adr_config(), % used
     adr_set :: adr_config(), % requested
+    rxwin_use :: rxwin_config(), % used
+    rxwin_set :: rxwin_config(), % requested
     last_qs :: [{integer(), integer()}], % list of {RSSI, SNR} tuples
     devstat_time :: calendar:datetime(),
     devstat_fcnt :: integer(),
