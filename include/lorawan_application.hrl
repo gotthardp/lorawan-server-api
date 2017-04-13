@@ -24,6 +24,7 @@
     lsnr :: number()}).
 
 -record(txq, {
+    region :: binary(),
     freq :: number(),
     datr :: binary(),
     codr :: binary(),
@@ -37,8 +38,10 @@
 
 -record(gateway, {
     mac :: binary(),
-    tx_rfch :: integer(), % rf chain for downlinks
     netid :: binary(), % network id
+    tx_rfch :: integer(), % rf chain for downlinks
+    tx_powe :: integer(),
+    ant_gain :: integer(),
     desc :: string(),
     last_rx :: calendar:datetime(),
     gpspos :: {number(), number()}, % {latitude, longitude}
