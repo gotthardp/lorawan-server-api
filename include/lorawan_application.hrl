@@ -50,6 +50,8 @@
 -record(multicast_group, {
     devaddr :: devaddr(), % multicast address
     region :: binary(),
+    app :: binary(),
+    appid :: any(), % application route
     chan :: integer(),
     datr :: binary(),
     codr :: binary(),
