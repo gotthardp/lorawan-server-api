@@ -4,13 +4,16 @@
 % Distributed under the terms of the MIT License. See the LICENSE file.
 %
 
--type eui() :: <<_:128>>.
--type seckey() :: <<_:256>>.
--type devaddr() :: <<_:64>>.
+-type eui() :: <<_:64>>.
+-type seckey() :: <<_:128>>.
+-type devaddr() :: <<_:32>>.
 -type frid() :: <<_:64>>.
 -type intervals() :: [{integer(), integer()}].
 -type adr_config() :: {integer(), integer(), intervals()}.
--type rxwin_config() :: {integer(), integer(), number()}.
+-type rxwin_config() :: {
+    'undefined' | integer(),
+    'undefined' | integer(),
+    'undefined' | number()}.
 -type devstat() :: {integer(), integer()}.
 
 -record(rxq, {
@@ -28,9 +31,9 @@
     freq :: number(),
     datr :: binary(),
     codr :: binary(),
-    tmst :: integer(),
+    tmst :: 'undefined' | integer(),
     time :: 'undefined' | 'immediately' | calendar:datetime(),
-    powe :: integer()}).
+    powe :: 'undefined' | integer()}).
 
 -record(user, {
     name :: nonempty_string(),
@@ -40,12 +43,12 @@
     mac :: binary(),
     netid :: binary(), % network id
     tx_rfch :: integer(), % rf chain for downlinks
-    tx_powe :: integer(),
-    ant_gain :: integer(),
-    desc :: string(),
-    last_rx :: calendar:datetime(),
+    tx_powe :: 'undefined' | integer(),
+    ant_gain :: 'undefined' | integer(),
+    desc :: 'undefined' | string(),
+    last_rx :: 'undefined' | calendar:datetime(),
     gpspos :: {number(), number()}, % {latitude, longitude}
-    gpsalt :: number()}). % altitude
+    gpsalt :: 'undefined' | number()}). % altitude
 
 -record(multicast_group, {
     devaddr :: devaddr(), % multicast address
@@ -72,7 +75,7 @@
     can_join :: boolean(),
     last_join :: calendar:datetime(),
     fcnt_check :: integer(),
-    adr_flag_set :: boolean(), % server requests
+    adr_flag_set :: 0..2, % server requests (off, on, manual)
     adr_set :: adr_config(), % requested after join
     rxwin_set :: rxwin_config()}). % requested
 
@@ -89,19 +92,19 @@
     fcnt_check :: integer(),
     last_reset :: calendar:datetime(),
     reset_count :: integer(), % number of resets/joins
-    last_rx :: calendar:datetime(),
+    last_rx :: 'undefined' | calendar:datetime(),
     last_mac :: binary(), % gateway used
     last_rxq :: #rxq{},
-    adr_flag_use :: boolean(), % device supports
-    adr_flag_set :: boolean(), % server requests
+    adr_flag_use :: 0..1, % device supports (off, on)
+    adr_flag_set :: 0..2, % server requests (off, on, manual)
     adr_use :: adr_config(), % used
     adr_set :: adr_config(), % requested
     rxwin_use :: rxwin_config(), % used
     rxwin_set :: rxwin_config(), % requested
     last_qs :: [{integer(), integer()}], % list of {RSSI, SNR} tuples
-    devstat_time :: calendar:datetime(),
-    devstat_fcnt :: integer(),
-    devstat :: devstat()}). % {battery, margin}
+    devstat_time :: 'undefined' | calendar:datetime(),
+    devstat_fcnt :: 'undefined' | integer(),
+    devstat :: 'undefined' | devstat()}). % {battery, margin}
 
 -record(rxdata, {
     fcnt :: integer(),
@@ -112,8 +115,8 @@
 
 -record(txdata, {
     confirmed=false :: boolean(),
-    port :: integer(),
-    data :: binary(),
+    port :: 'undefined' | integer(),
+    data :: 'undefined' | binary(),
     pending=false :: boolean()}).
 
 -record(pending, {
@@ -131,7 +134,7 @@
     frid :: frid(), % unique identifier
     mac :: binary(), % gateway used
     rxq :: #rxq{},
-    average_qs :: {number(), number()}, % average RSSI and SNR
+    average_qs :: 'undefined' | {number(), number()}, % average RSSI and SNR
     app :: binary(),
     appid :: any(), % application route
     region :: binary(),
@@ -141,6 +144,6 @@
     port :: integer(),
     data :: binary(),
     datetime :: calendar:datetime(),
-    devstat :: devstat()}). % {battery, margin}
+    devstat :: 'undefined' | devstat()}). % {battery, margin}
 
 % end of file
