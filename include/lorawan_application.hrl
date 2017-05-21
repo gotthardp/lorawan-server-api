@@ -42,6 +42,7 @@
 -record(gateway, {
     mac :: binary(),
     netid :: binary(), % network id
+    subid :: 'undefined' | bitstring(), % sub-network id
     tx_rfch :: integer(), % rf chain for downlinks
     tx_powe :: 'undefined' | integer(),
     ant_gain :: 'undefined' | integer(),
