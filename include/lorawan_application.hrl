@@ -76,6 +76,7 @@
     can_join :: boolean(),
     last_join :: calendar:datetime(),
     fcnt_check :: integer(),
+    txwin :: integer(),
     adr_flag_set :: 0..2, % server requests (off, on, manual)
     adr_set :: adr_config(), % requested after join
     rxwin_set :: rxwin_config()}). % requested
@@ -91,6 +92,7 @@
     fcntup :: integer(), % last uplink fcnt
     fcntdown :: integer(), % last downlink fcnt
     fcnt_check :: integer(),
+    txwin :: integer(),
     last_reset :: calendar:datetime(),
     reset_count :: integer(), % number of resets/joins
     last_rx :: 'undefined' | calendar:datetime(),
