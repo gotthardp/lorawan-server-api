@@ -79,7 +79,8 @@
     txwin :: integer(),
     adr_flag_set :: 0..2, % server requests (off, on, manual)
     adr_set :: adr_config(), % requested after join
-    rxwin_set :: rxwin_config()}). % requested
+    rxwin_set :: rxwin_config(), % requested
+    request_devstat :: boolean()}).
 
 -record(link, {
     devaddr :: devaddr(),
@@ -105,6 +106,7 @@
     rxwin_use :: rxwin_config(), % used
     rxwin_set :: rxwin_config(), % requested
     last_qs :: [{integer(), integer()}], % list of {RSSI, SNR} tuples
+    request_devstat :: boolean(),
     devstat_time :: 'undefined' | calendar:datetime(),
     devstat_fcnt :: 'undefined' | integer(),
     devstat :: 'undefined' | devstat()}). % {battery, margin}
