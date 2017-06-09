@@ -9,9 +9,9 @@
 
 -callback init(App :: binary()) ->
     ok | {ok, [Path :: cowboy_router:route_path()]}.
--callback handle_join(DevAddr :: binary(), App :: binary(), AppArgs :: binary()) ->
+-callback handle_join(Gateway :: #gateway{}, Device :: #device{}, Link :: #link{}) ->
     ok | {error, Error :: term()}.
--callback handle_rx(DevAddr :: binary(), App :: binary(), AppArgs :: binary(), RxData :: #rxdata{}, RxQ :: #rxq{}) ->
+-callback handle_rx(Gateway :: #gateway{}, Link :: #link{}, RxData :: #rxdata{}, RxQ :: #rxq{}) ->
     ok | retransmit |
     {send, Port :: integer(), Data :: #txdata{}} |
     {error, Error :: term()}.
