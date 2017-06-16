@@ -46,6 +46,7 @@
     tx_rfch :: integer(), % rf chain for downlinks
     tx_powe :: 'undefined' | integer(),
     ant_gain :: 'undefined' | integer(),
+    group :: any(),
     desc :: 'undefined' | string(),
     last_rx :: 'undefined' | calendar:datetime(),
     gpspos :: {number(), number()}, % {latitude, longitude}
