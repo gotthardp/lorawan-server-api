@@ -57,9 +57,6 @@
     region :: binary(),
     app :: binary(),
     appid :: any(), % application route
-    chan :: integer(),
-    datr :: binary(),
-    codr :: binary(),
     nwkskey :: seckey(),
     appskey :: seckey(),
     mac :: binary(),
