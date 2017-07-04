@@ -144,6 +144,7 @@
     devaddr :: devaddr(),
     powe:: integer(),
     fcnt :: integer(),
+    confirm :: boolean(),
     port :: integer(),
     data :: binary(),
     datetime :: calendar:datetime(),
