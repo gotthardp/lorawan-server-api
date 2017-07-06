@@ -48,9 +48,10 @@
     ant_gain :: 'undefined' | integer(),
     group :: any(),
     desc :: 'undefined' | string(),
-    last_rx :: 'undefined' | calendar:datetime(),
     gpspos :: {number(), number()}, % {latitude, longitude}
-    gpsalt :: 'undefined' | number()}). % altitude
+    gpsalt :: 'undefined' | number(), % altitude
+    last_rx :: 'undefined' | calendar:datetime(),
+    delays :: [{calendar:datetime(), integer()}]}).
 
 -record(multicast_group, {
     devaddr :: devaddr(), % multicast address
