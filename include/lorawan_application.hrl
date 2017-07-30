@@ -51,6 +51,7 @@
     gpspos :: {number(), number()}, % {latitude, longitude}
     gpsalt :: 'undefined' | number(), % altitude
     last_rx :: 'undefined' | calendar:datetime(),
+    dwell :: [{calendar:datetime(), {number(), number(), number()}}], % {frequency, duration, hoursum}
     delays :: [{calendar:datetime(), integer()}]}).
 
 -record(multicast_group, {
