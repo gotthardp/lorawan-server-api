@@ -122,7 +122,7 @@
     confirmed=false :: boolean(),
     port :: 'undefined' | integer(),
     data :: 'undefined' | binary(),
-    pending=false :: boolean()}).
+    pending :: 'undefined' | boolean()}).
 
 -record(pending, {
     devaddr :: devaddr(),
