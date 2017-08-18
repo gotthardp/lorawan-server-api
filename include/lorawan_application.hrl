@@ -37,7 +37,8 @@
 
 -record(user, {
     name :: nonempty_string(),
-    pass :: string()}).
+    pass :: string(),
+    roles :: [string()]}).
 
 -record(gateway, {
     mac :: binary(),
