@@ -14,7 +14,6 @@
     'undefined' | integer(),
     'undefined' | integer(),
     'undefined' | number()}.
--type devstat() :: {integer(), integer()}.
 
 -record(rxq, {
     freq :: number(),
@@ -110,7 +109,7 @@
     request_devstat :: boolean(),
     devstat_time :: 'undefined' | calendar:datetime(),
     devstat_fcnt :: 'undefined' | integer(),
-    devstat :: 'undefined' | devstat()}). % {battery, margin}
+    devstat :: [{calendar:datetime(), integer(), integer()}]}). % {time, battery, margin}
 
 -record(rxdata, {
     fcnt :: integer(),
@@ -150,7 +149,16 @@
     confirm :: boolean(),
     port :: integer(),
     data :: binary(),
-    datetime :: calendar:datetime(),
-    devstat :: 'undefined' | devstat()}). % {battery, margin}
+    datetime :: calendar:datetime()}).
+
+-record(event, {
+    evid :: binary(),
+    severity :: atom(),
+    first_rx :: calendar:datetime(),
+    last_rx :: calendar:datetime(),
+    count :: integer(),
+    entity :: atom(),
+    eid :: binary(),
+    text :: any()}).
 
 % end of file
