@@ -17,7 +17,7 @@
 
 -record(rxq, {
     freq :: number(),
-    datr :: binary(),
+    datr :: binary() | integer(),
     codr :: binary(),
     time :: calendar:datetime(),
     tmst :: integer(),
@@ -28,7 +28,7 @@
 -record(txq, {
     region :: binary(),
     freq :: number(),
-    datr :: binary(),
+    datr :: binary() | integer(),
     codr :: binary(),
     tmst :: 'undefined' | integer(),
     time :: 'undefined' | 'immediately' | calendar:datetime(),
@@ -160,7 +160,7 @@
     count :: integer(),
     entity :: atom(),
     eid :: binary(),
-    text :: atom(),
-    args :: any()}).
+    text :: binary(),
+    args :: 'undefined' | binary()}).
 
 % end of file
