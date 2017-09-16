@@ -94,6 +94,7 @@
     fcntdown :: integer(), % last downlink fcnt
     fcnt_check :: integer(),
     txwin :: integer(),
+    first_reset :: calendar:datetime(),
     last_reset :: calendar:datetime(),
     reset_count :: integer(), % number of resets/joins
     last_rx :: 'undefined' | calendar:datetime(),
