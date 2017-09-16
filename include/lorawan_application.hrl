@@ -160,6 +160,7 @@
     count :: integer(),
     entity :: atom(),
     eid :: binary(),
-    text :: any()}).
+    text :: atom(),
+    args :: any()}).
 
 % end of file
