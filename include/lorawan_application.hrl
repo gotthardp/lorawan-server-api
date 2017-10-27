@@ -50,7 +50,10 @@
     desc :: 'undefined' | string(),
     gpspos :: {number(), number()}, % {latitude, longitude}
     gpsalt :: 'undefined' | number(), % altitude
-    last_rx :: 'undefined' | calendar:datetime(),
+    last_rx :: 'undefined' | calendar:datetime()}).
+
+-record(gateway_stats, {
+    mac :: binary(),
     dwell :: [{calendar:datetime(), {number(), number(), number()}}], % {frequency, duration, hoursum}
     delays :: [{calendar:datetime(), integer()}]}).
 
