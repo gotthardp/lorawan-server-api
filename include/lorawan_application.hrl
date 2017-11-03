@@ -103,8 +103,8 @@
     last_rx :: 'undefined' | calendar:datetime(),
     last_mac :: binary(), % gateway used
     last_rxq :: #rxq{},
-    adr_flag_use :: 0..1, % device supports (off, on)
-    adr_flag_set :: 0..2, % server requests (off, on, manual)
+    adr_flag_use :: 0..1, % device supports
+    adr_flag_set :: 0..4, % server requests
     adr_use :: adr_config(), % used
     adr_set :: adr_config(), % requested
     rxwin_use :: rxwin_config(), % used
